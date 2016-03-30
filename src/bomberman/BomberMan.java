@@ -16,9 +16,10 @@ public class BomberMan {
         Game g = new Game();
         g.setSize(768, 768);
         f.add(g);
-        f.setSize(768, 768);
+        f.setSize(768, 796);
         f.setResizable(false);
         f.setVisible(true);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    
+
 }

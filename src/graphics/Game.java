@@ -1,4 +1,5 @@
 package graphics;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -6,6 +7,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+
 /**
  *
  * @author AMINE IT
@@ -13,6 +15,7 @@ import javax.swing.JPanel;
 public class Game extends JPanel implements KeyListener {
 
     static int bgSize = 64;
+    static int nbTiles = 12;
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -20,10 +23,9 @@ public class Game extends JPanel implements KeyListener {
         this.setBackground(Color.red);
         Image bgImage;
         bgImage = new ImageIcon("assets\\Blocks\\BackgroundTile.png").getImage();
-        System.out.println(bgImage.getSource().toString());
-        for (int i = 0; i < 12; i++) {
-            for (int j = 0; j < 12; j++) {
-                g.drawImage(bgImage, i * 64, j * 64, this);
+        for (int i = 0; i < nbTiles; i++) {
+            for (int j = 0; j < nbTiles; j++) {
+                g.drawImage(bgImage, i * bgSize, j * bgSize, this);
             }
         }
         this.setVisible(true);
