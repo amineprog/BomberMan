@@ -24,9 +24,11 @@ public class Game extends JPanel implements Runnable {
     private Stage currentStage;
     static int currentX = 1;
     static int currentY = 1;
+    private Image Player;
 
     public Game(Stage currentStage) {
         this.currentStage = currentStage;
+        Player = new ImageIcon("assets\\Bomberman\\Front\\Bman_F_f00.png").getImage();
         this.setFocusable(true);
         run();
     }
@@ -58,11 +60,10 @@ public class Game extends JPanel implements Runnable {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         this.setBackground(Color.red);
-        Image bgImage, BlockSolid, BlockEx, Player;
+        Image bgImage, BlockSolid, BlockEx;
         bgImage = new ImageIcon("assets\\Blocks\\BackgroundTile.png").getImage();
         BlockSolid = new ImageIcon("assets\\Blocks\\SolidBlock.png").getImage();
         BlockEx = new ImageIcon("assets\\Blocks\\ExplodableBlock.png").getImage();
-        Player = new ImageIcon("assets\\Bomberman\\Front\\Bman_F_f00.png").getImage();
         for (int i = 0; i < nbTiles; i++) {
             for (int j = 0; j < nbTiles; j++) {
                 g.drawImage(bgImage, i * bgSize, j * bgSize, this);
@@ -102,6 +103,7 @@ public class Game extends JPanel implements Runnable {
             @Override
             public void keyPressed(KeyEvent e) {
                 System.out.println(e.getKeyCode());
+                 Player = new ImageIcon("assets\\Bomberman\\Front\\Bman_F_f00.png").getImage();
             }
 
             @Override
@@ -111,15 +113,19 @@ public class Game extends JPanel implements Runnable {
                 int newX = currentX, newY = currentY;
                 if (e.getKeyCode() == 38) {
                     newY--;
+                    Player = new ImageIcon("assets\\Bomberman\\Back\\Bman_F_f00.png").getImage();
                 }
                 if (e.getKeyCode() == 39) {
                     newX++;
+                    Player = new ImageIcon("assets\\Bomberman\\Side\\Bman_F_f00.png").getImage();
                 }
                 if (e.getKeyCode() == 40) {
                     newY++;
+                    Player = new ImageIcon("assets\\Bomberman\\Back\\Bman_F_f00.png").getImage();
                 }
                 if (e.getKeyCode() == 37) {
                     newX--;
+                    Player = new ImageIcon("assets\\Bomberman\\Side\\Bman_F_f00.png").getImage();
                 }
                 Location l = new Location(newX, newY);
                 if (tray[newX][newY] == null) {
