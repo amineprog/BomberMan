@@ -1,14 +1,14 @@
 package players;
 
-import java.awt.geom.Dimension2D;
+import tools.Location;
 
 /**
  *
  * @author AMINE IT
  */
-public abstract class Sprite {
+public class Sprite {
 
-    private Dimension2D location;
+    private Location location;
     private TypeSprite spritType;
 
     public Sprite() {
@@ -18,20 +18,20 @@ public abstract class Sprite {
         this.spritType = spritType;
     }
 
-    public Sprite(Dimension2D location) {
+    public Sprite(Location location) {
         this.location = location;
     }
 
-    public Sprite(Dimension2D location, TypeSprite spritType) {
+    public Sprite(Location location, TypeSprite spritType) {
         this.location = location;
         this.spritType = spritType;
     }
 
-    public void setLocation(Dimension2D location) {
+    public void setLocation(Location location) {
         this.location = location;
     }
 
-    public Dimension2D getLocation() {
+    public Location getLocation() {
         return location;
     }
 

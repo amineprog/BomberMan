@@ -1,5 +1,6 @@
 package tools;
 
+import java.util.Arrays;
 import players.Sprite;
 
 /**
@@ -24,6 +25,18 @@ public class Stage {
 
     @Override
     public String toString() {
-        return "Stage{" + "tray=" + tray + '}';
+        String str = "";
+        for (int i = 0; i < 12; i++) {
+            for (int j = 0; j < 12; j++) {
+                if (tray[i][j] != null) {
+                    str += "|" + "X => " + i + "__Y => " + j + "|";
+                    System.out.println("X => " + i + "__Y => " + j);
+                } else {
+                    str += "|vide|";
+                }
+            }
+            str += "\n";
+        }
+        return str;
     }
 }
